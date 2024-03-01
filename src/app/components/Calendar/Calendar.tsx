@@ -2,6 +2,7 @@ import ReactDatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import "../../weather_icons_data/css/weather-icons.css";
 import styles from "./Calendar.module.css";
+import { normalDateFormatted } from "@/app/functions/functions";
 
 export function Calendar({
   startDate,
@@ -14,6 +15,9 @@ export function Calendar({
   endDate: Date;
   setEndDate: (date: Date) => void;
 }) {
+  const startDateV = normalDateFormatted(startDate);
+
+  const endDateV = normalDateFormatted(endDate);
   return (
     <div>
       <div className={styles.desc}>
@@ -25,6 +29,7 @@ export function Calendar({
           <ReactDatePicker
             dateFormat="dd/MM/yyyy"
             selected={startDate}
+            value={startDateV}
             onChange={(date) => {
               date = date ? date : new Date();
               setStartDate(date);
@@ -38,6 +43,7 @@ export function Calendar({
           <ReactDatePicker
             dateFormat="dd/MM/yyyy"
             selected={endDate}
+            value={endDateV}
             onChange={(date) => {
               date = date ? date : new Date();
               setEndDate(date);
