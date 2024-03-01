@@ -16,8 +16,9 @@ export function Calendar({
   setEndDate: (date: Date) => void;
 }) {
   const startDateV = normalDateFormatted(startDate);
-
   const endDateV = normalDateFormatted(endDate);
+  const now = new Date();
+
   return (
     <div>
       <div className={styles.desc}>
@@ -30,6 +31,7 @@ export function Calendar({
             dateFormat="dd/MM/yyyy"
             selected={startDate}
             value={startDateV}
+            maxDate={now}
             onChange={(date) => {
               date = date ? date : new Date();
               setStartDate(date);
@@ -44,6 +46,7 @@ export function Calendar({
             dateFormat="dd/MM/yyyy"
             selected={endDate}
             value={endDateV}
+            maxDate={now}
             onChange={(date) => {
               date = date ? date : new Date();
               setEndDate(date);
