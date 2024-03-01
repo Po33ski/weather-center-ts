@@ -1,0 +1,120 @@
+"use client";
+import {
+  useState,
+  useCallback,
+  useContext,
+  useEffect,
+  ReactNode,
+  ReactPortal,
+} from "react";
+import { createPortal } from "react-dom";
+import { CurrentForm } from "../components/CurrentForm/CurrentForm";
+import { WeatherView } from "../components/WeatherView/WeatherView";
+import { ErrorMessage } from "../components/ErrorMessage/ErrorMessage";
+import { MainPhoto } from "../components/MainPhoto/MainPhoto";
+import { ModalBrick } from "../components/ModalBrick/ModalBrick";
+import { ModalInfo } from "../components/ModalInfo/ModalInfo";
+import { BrickModalContext } from "../contexts/BrickModalContext";
+import { InfoModalContext } from "../contexts/InfoModalContext";
+import { API_KEY, API_HTTP } from "../constants/apiConstants";
+import { BrickModalContextType, InfoModalContextType } from "../types/types";
+import { CurrentData } from "../types/interfaces";
+
+export const CurrentWeatherPage = () => {
+  const brickModalContext = useContext<BrickModalContextType | null>(
+    BrickModalContext
+  );
+  const infoModalContext = useContext<InfoModalContextType | null>(
+    InfoModalContext
+  );
+
+  const [data, setData] = useState<CurrentData>({
+    address: null,
+    days: [
+      {
+        description: null,
+        temp: null,
+        tempmax: null,
+        tempmin: null,
+        winddir: null,
+        windspeed: null,
+        conditions: null,
+        sunrise: null,
+        sunset: null,
+        hours: [
+          {
+            temp: null,
+            conditions: null,
+            winddir: null,
+            windspeed: null,
+          },
+        ],
+      },
+    ],
+  });
+
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [isError, setIsError] = useState<string | null>(null);
+  const [brickModal, setBrickModal] = useState<ReactPortal | null>(null);
+  const [infoModal, setInfoModal] = useState<ReactPortal | null>(null);
+
+  useEffect(() => {
+    const createBrickModal = createPortal(<ModalBrick />, document.body);
+    setBrickModal(createBrickModal);
+  }, []);
+
+  useEffect(() => {
+    const createInfoModal = createPortal(<ModalInfo />, document.body);
+    setInfoModal(createInfoModal);
+  }, []);
+
+  const handleError = useCallback((e: Error) => {
+    setIsError(e.message);
+    setTimeout(() => {
+      setIsError(null);
+    }, 5000);
+  }, []);
+
+  function onCitySubmit(cityData: string | undefined) {
+    setIsLoading(true);
+    fetch(
+      `${API_HTTP}${cityData}?unitGroup=metric&include=hours%2Cdays&key=${API_KEY}&contentType=json`
+    )
+      .then((response) => {
+        if (response.ok) {
+          return response.json();
+        } else {
+          throw new Error(
+            "Error, please wait until the request becomes available again or check if your request complies with the guidelines"
+          );
+        }
+      })
+      .then((response) => {
+        console.log(response);
+        setData(response);
+        setIsLoading(false);
+      })
+      .catch((err) => {
+        console.error(err);
+        setIsLoading(false);
+        handleError(err);
+      });
+  }
+  if (isLoading) {
+    return <p>Loading</p>;
+  }
+
+  return (
+    <>
+      <CurrentForm onCitySubmit={onCitySubmit} />
+      {isError && <ErrorMessage>{isError}</ErrorMessage>}
+      {data["address"] ? (
+        <WeatherView data={data["days"][0]} address={data["address"]} />
+      ) : (
+        <MainPhoto />
+      )}
+      {brickModalContext?.isModalShown && brickModal}
+      {infoModalContext?.isInfoModalShown && infoModal}
+    </>
+  );
+};

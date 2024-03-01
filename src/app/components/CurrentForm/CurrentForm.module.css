@@ -1,0 +1,25 @@
+.form {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+  padding-left: 40%;
+  padding-right: 40%;
+
+  background-color: gray;
+}
+.row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.cell {
+  display: flex;
+  flex-direction: column;
+}
+
+.input {
+  border-radius: 8px;
+  border: solid 1px black;
+  padding: 1rem 2rem;
+}

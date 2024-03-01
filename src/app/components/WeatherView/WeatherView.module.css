@@ -1,0 +1,16 @@
+.section {
+  background-color: #2e3138;
+  border-radius: 8px;
+  margin: 12px;
+}
+
+.list {
+  list-style-type: none;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+}
+
+.text {
+  padding-left: 1rem;
+}

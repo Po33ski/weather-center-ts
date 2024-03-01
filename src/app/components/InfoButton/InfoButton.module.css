@@ -1,0 +1,26 @@
+.info {
+  display: flex;
+  gap: 0.5rem;
+  padding: 0.5rem;
+}
+
+.info li {
+  position: relative;
+}
+.button {
+  background-color: aquamarine;
+  border: solid 1px aquamarine;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s background-color;
+  font-size: 32px;
+  color: gray;
+}
+
+.button:hover {
+  background-color: var(--color-white);
+}
+
+.text {
+  padding-right: 1rem;
+}

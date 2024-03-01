@@ -1,0 +1,45 @@
+:root {
+  --default-font-size: 16px;
+  --font-family-default: Helvetica, Arial, sans-serif;
+  --color-default: #222020;
+  --color-text-default: #222020;
+  --color-default-grey: #7a7a7a;
+  --color-white: #ffffff;
+  --color-theme-main: #056943;
+  --color-theme-gray: #f4f4f4;
+  --color-error: #c0392b;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+:root {
+  font-size: var(--default-font-size);
+  color: var(--color-default);
+  font-family: var(--font-family-default);
+  background-color: var(--color-white);
+}
+
+body,
+ol,
+ul,
+p {
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: var(--color-default);
+}

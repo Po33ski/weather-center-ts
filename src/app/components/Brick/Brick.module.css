@@ -1,0 +1,42 @@
+.item {
+  display: flex;
+  justify-content: center;
+}
+
+.wrapperButton {
+  display: inline-flex;
+  padding: 24px;
+  flex-direction: column;
+  border-radius: 12px;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 1rem 0;
+  background-color: #ccc9e7;
+  min-height: 8rem;
+  min-width: 12rem;
+  cursor: pointer;
+}
+
+.icon {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  color: #fff;
+  background-color: #856a5d;
+  width: 2rem;
+  height: 2rem;
+}
+
+.data {
+  display: block;
+}
+
+.title {
+  display: block;
+}
+
+.wrapper:hover {
+  min-height: 9rem;
+  min-width: 13rem;
+}

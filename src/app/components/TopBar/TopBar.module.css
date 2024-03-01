@@ -1,0 +1,18 @@
+.topBar {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  color: black;
+  background-color: aquamarine;
+  width: 100%;
+  max-width: 200rem;
+
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.topBar > div {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  align-items: center;
+}

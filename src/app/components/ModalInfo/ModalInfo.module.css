@@ -1,0 +1,23 @@
+.modal {
+  position: fixed;
+  left: 15vw;
+  right: 15vw;
+  top: 15vh;
+  bottom: 15vh;
+  background-color: #eee;
+  color: #1b1b1b;
+  font-size: 48px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3rem;
+  justify-content: center;
+  border-radius: 30px;
+  border: solid 2px black;
+}
+
+.p {
+  font-size: x-large;
+  padding-left: 5rem;
+  padding-right: 3rem;
+}
