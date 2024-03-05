@@ -7,9 +7,9 @@ export const SYSTEMS: MetricSystems = {
 };
 
 export const UNIT_SYSTEMS: UnitSystems = {
-  US: { unit: "US", temperature: "°F", distance: "miles/h" },
+  US: { unit: "US", temperature: "°F", distance: "mph" },
   METRIC: { unit: "METRIC", temperature: "°C", distance: "km/h" },
-  UK: { unit: "UK", temperature: "°C", distance: "miles/h" },
+  UK: { unit: "UK", temperature: "°C", distance: "mph" },
 };
 
 export const SYSTEMS_SIGN = {
@@ -19,8 +19,8 @@ export const SYSTEMS_SIGN = {
     UK: "°C",
   },
   distance: {
-    US: "miles/h",
+    US: "mph",
     METRIC: "km/h",
-    UK: "miles/h",
+    UK: "mph",
   },
 };

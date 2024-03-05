@@ -2,6 +2,7 @@
   display: flex;
   border-bottom: 1px solid var(--color-border);
   background-color: gray;
+  align-items: center;
 }
 
 .form {
@@ -21,4 +22,5 @@
   border-radius: 8px;
   border: solid 1px black;
   padding: 1rem 2rem;
+  font-size: medium;
 }

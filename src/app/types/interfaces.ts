@@ -1,4 +1,3 @@
-import { UNIT_SYSTEMS } from "./../constants/unitSystems";
 import { StaticImageData } from "next/image";
 
 export interface PagesInfo {

@@ -11,6 +11,7 @@ import {
   UnitSystemContextType,
 } from "@/app/types/types";
 import styles from "./ModalBrick.module.css";
+import { UNIT_SYSTEMS } from "@/app/constants/unitSystems";
 export function ModalBrick() {
   const unitSystemContext = useContext<UnitSystemContextType | null>(
     UnitSystemContext
@@ -56,12 +57,21 @@ export function ModalBrick() {
             </div>
             <div className={styles.flexDiv}>
               <h2 className={styles.data}>
-                {(checkSign(kindOfData, unitSystem) === "°F"
-                  ? systemsConvert.toFahrenheit(dataN)
-                  : data) ||
-                  (checkSign(kindOfData, unitSystem) === "miles/h"
+                {(kindOfData === "temp" ||
+                kindOfData === "tempmax" ||
+                kindOfData === "tempmin"
+                  ? UNIT_SYSTEMS[unitSystem].temperature === "°F"
+                    ? systemsConvert.toFahrenheit(dataN)
+                    : dataN
+                  : kindOfData === "windspeed"
+                  ? UNIT_SYSTEMS[unitSystem].distance === "mph"
                     ? systemsConvert.toMiles(dataN)
-                    : data)}{" "}
+                    : dataN
+                  : dataN) ||
+                  ((kindOfData === "conditions" ||
+                    kindOfData === "sunset" ||
+                    kindOfData === "sunrise") &&
+                    data)}{" "}
                 {checkSign(kindOfData, unitSystem)}
               </h2>
               {(kindOfData === "winddir" || kindOfData === "conditions") && (

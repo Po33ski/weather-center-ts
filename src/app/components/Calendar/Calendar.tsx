@@ -26,11 +26,12 @@ export function Calendar({
         <h4>End Date</h4>
       </div>
       <div className={styles.cell}>
-        <div className={styles.picker}>
+        <div>
           <ReactDatePicker
             dateFormat="dd/MM/yyyy"
             selected={startDate}
             value={startDateV}
+            className={styles.picker}
             maxDate={now}
             onChange={(date) => {
               date = date ? date : new Date();
@@ -41,11 +42,12 @@ export function Calendar({
         <div className={styles.arrow}>
           <i className="wi wi-direction-right" />
         </div>
-        <div className={styles.picker}>
+        <div>
           <ReactDatePicker
             dateFormat="dd/MM/yyyy"
             selected={endDate}
             value={endDateV}
+            className={styles.picker}
             maxDate={now}
             onChange={(date) => {
               date = date ? date : new Date();

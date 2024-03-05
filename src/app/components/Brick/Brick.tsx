@@ -6,6 +6,7 @@ import { checkSign } from "@/app/functions/functions";
 import { systemsConvert } from "@/app/functions/functions";
 import styles from "./Brick.module.css";
 import { UnitSystemContextType } from "@/app/types/types";
+import { UNIT_SYSTEMS } from "@/app/constants/unitSystems";
 
 export function Brick({
   data,
@@ -48,14 +49,19 @@ export function Brick({
           <Icon data={titleData} kindOfData={"title"} />
         </strong>
         <span className={styles.data}>
-          {(typeof data === "number" &&
-          checkSign(kindOfData, unitSystem) === "°F"
-            ? systemsConvert.toFahrenheit(data)
-            : data) ||
-            (typeof data === "number" &&
-            checkSign(kindOfData, unitSystem) === "miles/h"
-              ? systemsConvert.toMiles(data)
-              : data)}{" "}
+          {typeof data === "number"
+            ? kindOfData === "temp" ||
+              kindOfData === "tempmax" ||
+              kindOfData === "tempmin"
+              ? UNIT_SYSTEMS[unitSystem].temperature === "°F"
+                ? systemsConvert.toFahrenheit(data)
+                : data
+              : kindOfData === "windspeed"
+              ? UNIT_SYSTEMS[unitSystem].distance === "mph"
+                ? systemsConvert.toMiles(data)
+                : data
+              : data
+            : data}{" "}
           {checkSign(kindOfData, unitSystem)}
         </span>
         {(kindOfData === "winddir" || kindOfData === "conditions") && (
