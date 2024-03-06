@@ -18,3 +18,10 @@ export type UnitSystemContextType = {
     setToLocalStorage: (newData: unknown) => void;
   };
 };
+
+export type CityContextType = {
+  city: {
+    data: string | null;
+    setToLocalStorage: (newData: unknown) => void;
+  };
+};

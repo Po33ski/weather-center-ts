@@ -1,7 +1,7 @@
 import styles from "./SystemSelector.module.css";
 import { SYSTEMS } from "@/app/constants/unitSystems";
 import { UnitSystemContext } from "@/app/contexts/UnitSystemContext";
-import { useLocalStorage } from "@/app/hooks/useLocalStorage";
+
 import { UnitSystemContextType } from "@/app/types/types";
 import { useContext } from "react";
 
@@ -9,7 +9,6 @@ export function SystemSelector() {
   const unitSystemContext = useContext<UnitSystemContextType | null>(
     UnitSystemContext
   );
-  //const [,setToLocalStorage] = useLocalStorage("data", "METRIC" );
 
   const unitSystem =
     unitSystemContext?.unitSystem.data === "US" ||
