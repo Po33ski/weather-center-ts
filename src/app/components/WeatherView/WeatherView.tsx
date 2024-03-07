@@ -4,6 +4,7 @@ import { MyText } from "../MyText/MyText";
 import { capitalizeFirstLetter } from "@/app/functions/functions";
 import { CurrentDataDay } from "@/app/types/interfaces";
 import styles from "./WeatherView.module.css";
+import { Button } from "../Button/Button";
 
 export function WeatherView({
   data,
@@ -73,9 +74,8 @@ export function WeatherView({
           />
         </ul>
       </section>
-      <MyText>Weather for every hour:</MyText>
-
-      <DayList data={data["hours"]} />
     </>
   );
 }
+
+//<DayList data={data["hours"]} />

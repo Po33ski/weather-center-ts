@@ -22,10 +22,13 @@ import {
   InfoModalContextType,
 } from "../types/types";
 import { CurrentData } from "../types/interfaces";
+import { DayList } from "../components/DayList/DayList";
+import { MyText } from "../components/MyText/MyText";
 import { CityContext } from "../contexts/CityContextType";
 import { ButtonLink } from "../components/ButtonLink/ButtonLink";
+import { capitalizeFirstLetter } from "../functions/functions";
 
-export const CurrentWeatherPage = () => {
+export function HoursPage() {
   const brickModalContext = useContext<BrickModalContextType | null>(
     BrickModalContext
   );
@@ -104,12 +107,8 @@ export const CurrentWeatherPage = () => {
         handleError(err);
       });
   }, [cityContext?.city.data, handleError]);
-
   function onCitySubmit(cityData: string | undefined) {
-    //if(typeof cityData==="string" ){
     cityContext?.city.setToLocalStorage(cityData);
-    // }
-
     setIsLoading(true);
     fetch(
       `${API_HTTP}${cityData}?unitGroup=metric&include=hours%2Cdays&key=${API_KEY}&contentType=json`
@@ -137,24 +136,20 @@ export const CurrentWeatherPage = () => {
   if (isLoading) {
     return <p>Loading</p>;
   }
-
+  const address = capitalizeFirstLetter(data["address"]);
   return (
     <>
       <CurrentForm onCitySubmit={onCitySubmit} />
       {isError && <ErrorMessage>{isError}</ErrorMessage>}
-      {data["address"] ? (
+      {data["address"] && (
         <div>
-          <WeatherView data={data["days"][0]} address={data["address"]} />
-
-          <ButtonLink path={"/current/hours"}>
-            Weather for every hour
-          </ButtonLink>
+          {address !== null ? <MyText>The weather for {address}:</MyText> : ""}
+          <DayList data={data["days"][0]["hours"]} />
+          <ButtonLink path={"/current"}>Back</ButtonLink>
         </div>
-      ) : (
-        <MainPhoto />
       )}
       {brickModalContext?.isModalShown && brickModal}
       {infoModalContext?.isInfoModalShown && infoModal}
     </>
   );
-};
+}
