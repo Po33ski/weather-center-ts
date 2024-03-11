@@ -8,9 +8,9 @@ import {
 } from "react";
 import { createPortal } from "react-dom";
 import { CurrentForm } from "../components/CurrentForm/CurrentForm";
-import { WeatherView } from "../components/WeatherView/WeatherView";
+
 import { ErrorMessage } from "../components/ErrorMessage/ErrorMessage";
-import { MainPhoto } from "../components/MainPhoto/MainPhoto";
+
 import { ModalBrick } from "../components/ModalBrick/ModalBrick";
 import { ModalInfo } from "../components/ModalInfo/ModalInfo";
 import { BrickModalContext } from "../contexts/BrickModalContext";
@@ -27,6 +27,7 @@ import { MyText } from "../components/MyText/MyText";
 import { CityContext } from "../contexts/CityContextType";
 import { ButtonLink } from "../components/ButtonLink/ButtonLink";
 import { capitalizeFirstLetter } from "../functions/functions";
+import { Loading } from "../components/Loading/Loading";
 
 export function HoursPage() {
   const brickModalContext = useContext<BrickModalContextType | null>(
@@ -134,7 +135,7 @@ export function HoursPage() {
       });
   }
   if (isLoading) {
-    return <p>Loading</p>;
+    return <Loading />;
   }
   const address = capitalizeFirstLetter(data["address"]);
   return (

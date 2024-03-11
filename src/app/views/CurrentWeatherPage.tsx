@@ -24,6 +24,7 @@ import {
 import { CurrentData } from "../types/interfaces";
 import { CityContext } from "../contexts/CityContextType";
 import { ButtonLink } from "../components/ButtonLink/ButtonLink";
+import { Loading } from "../components/Loading/Loading";
 
 export const CurrentWeatherPage = () => {
   const brickModalContext = useContext<BrickModalContextType | null>(
@@ -33,7 +34,6 @@ export const CurrentWeatherPage = () => {
     InfoModalContext
   );
   const cityContext = useContext<CityContextType | null>(CityContext);
-  const [city, setCity] = useState<string | null>("cracow");
   const [data, setData] = useState<CurrentData>({
     address: null,
     days: [
@@ -83,10 +83,8 @@ export const CurrentWeatherPage = () => {
 
   useEffect(() => {
     if (cityContext?.city.data) {
-      setCity(cityContext?.city.data);
-
       fetch(
-        `${API_HTTP}${city}?unitGroup=metric&include=hours%2Cdays&key=${API_KEY}&contentType=json`
+        `${API_HTTP}${cityContext?.city.data}?unitGroup=metric&include=hours%2Cdays&key=${API_KEY}&contentType=json`
       )
         .then((response) => {
           if (response.ok) {
@@ -138,7 +136,7 @@ export const CurrentWeatherPage = () => {
       });
   }
   if (isLoading) {
-    return <p>Loading</p>;
+    return <Loading />;
   }
 
   return (

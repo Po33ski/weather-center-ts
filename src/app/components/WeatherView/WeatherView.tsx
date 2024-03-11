@@ -1,5 +1,4 @@
 import { Brick } from "../Brick/Brick";
-import { DayList } from "../DayList/DayList";
 import { MyText } from "../MyText/MyText";
 import { capitalizeFirstLetter } from "@/app/functions/functions";
 import { CurrentDataDay } from "@/app/types/interfaces";
@@ -77,5 +76,3 @@ export function WeatherView({
     </>
   );
 }
-
-//<DayList data={data["hours"]} />

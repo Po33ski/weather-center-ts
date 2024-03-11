@@ -18,6 +18,7 @@ import { capitalizeFirstLetter } from "../functions/functions";
 import { MyText } from "../components/MyText/MyText";
 import { InfoModalContextType } from "../types/types";
 import { WeatherData } from "../types/interfaces";
+import { Loading } from "../components/Loading/Loading";
 
 export const ForecastWeatherPage = () => {
   const infoModalContext = useContext<InfoModalContextType | null>(
@@ -84,7 +85,7 @@ export const ForecastWeatherPage = () => {
       });
   }
   if (isLoading) {
-    return <p>Loading</p>;
+    return <Loading />;
   }
 
   return (

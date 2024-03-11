@@ -1,4 +1,4 @@
-import { useRef, forwardRef, RefObject } from "react";
+import { useRef, forwardRef } from "react";
 import { Button } from "../Button/Button";
 import styles from "./CurrentForm.module.css";
 //
@@ -32,15 +32,17 @@ export const CurrentForm = ({
   }
 
   return (
-    <form onSubmit={handleSubmit} className={styles.form}>
-      <div className={styles.row}>
-        <div className={styles.cell}>
-          <Input ref={cityInputRef} />
+    <div className={styles.cont}>
+      <form onSubmit={handleSubmit} className={styles.form}>
+        <div className={styles.row}>
+          <div className={styles.cell}>
+            <Input ref={cityInputRef} />
+          </div>
         </div>
-      </div>
-      <div>
-        <Button onClick={() => {}}>Check</Button>
-      </div>
-    </form>
+        <div>
+          <Button onClick={() => {}}>Check</Button>
+        </div>
+      </form>
+    </div>
   );
 };
