@@ -1,6 +1,7 @@
 import { Layout } from "./components/Layout/Layout";
 import { Roboto } from "next/font/google";
 import "./globals.css";
+import "react-datepicker/dist/react-datepicker.css";
 import { ReactNode } from "react";
 
 const roboto = Roboto({
