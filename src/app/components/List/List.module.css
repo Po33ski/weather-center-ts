@@ -2,7 +2,7 @@
   border-radius: 12px;
   padding: 24px;
   margin: 12px;
-  background-color: #ccc9e7;
+  background-color: var(--color-list);
 }
 
 .tableContainer {

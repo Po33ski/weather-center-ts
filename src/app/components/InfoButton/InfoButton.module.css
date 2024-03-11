@@ -8,8 +8,8 @@
   position: relative;
 }
 .button {
-  background-color: aquamarine;
-  border: solid 1px aquamarine;
+  background-color: var(--color-theme-main);
+  border: solid 1px var(--color-theme-main);
   border-radius: 8px;
   cursor: pointer;
   transition: 0.3s background-color;

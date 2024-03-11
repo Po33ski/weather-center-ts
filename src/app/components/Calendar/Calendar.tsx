@@ -1,4 +1,4 @@
-import ReactDatePicker from "react-datepicker";
+import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import "../../weather_icons_data/css/weather-icons.css";
 import styles from "./Calendar.module.css";
@@ -34,7 +34,7 @@ export function Calendar({
           </div>
           <div className={styles.cell}>
             <div>
-              <ReactDatePicker
+              <DatePicker
                 dateFormat="dd/MM/yyyy"
                 selected={startDate}
                 value={startDateV}
@@ -50,7 +50,7 @@ export function Calendar({
               <i className="wi wi-direction-right" />
             </div>
             <div>
-              <ReactDatePicker
+              <DatePicker
                 dateFormat="dd/MM/yyyy"
                 selected={endDate}
                 value={endDateV}

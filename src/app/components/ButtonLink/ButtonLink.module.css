@@ -1,5 +1,5 @@
 .button {
-  background-color: aquamarine;
+  background-color: var(--color-theme-main);
   border: solid 1px black;
   border-radius: 8px;
   padding: 1rem 10rem;

@@ -11,8 +11,7 @@
   align-items: center;
   gap: 0.5rem;
   margin: 1rem 0;
-  background-color: #ccc9e7;
-  min-height: 8rem;
+  background-color: var(--color-list);
   min-width: 12rem;
   cursor: pointer;
 }

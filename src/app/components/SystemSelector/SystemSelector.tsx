@@ -2,9 +2,6 @@ import styles from "./SystemSelector.module.css";
 import { useContext, useEffect, useState } from "react";
 import { SYSTEMS } from "@/app/constants/unitSystems";
 import { UnitSystemContext } from "@/app/contexts/UnitSystemContext";
-
-import { useLocalStorage } from "@/app/hooks/useLocalStorage";
-
 import { UnitSystemContextType } from "@/app/types/types";
 
 export function SystemSelector() {
