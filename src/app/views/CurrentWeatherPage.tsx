@@ -33,6 +33,7 @@ export const CurrentWeatherPage = () => {
     InfoModalContext
   );
   const cityContext = useContext<CityContextType | null>(CityContext);
+  const [city, setCity] = useState<string | null>("cracow");
   const [data, setData] = useState<CurrentData>({
     address: null,
     days: [
@@ -81,34 +82,36 @@ export const CurrentWeatherPage = () => {
   }, []);
 
   useEffect(() => {
-    fetch(
-      `${API_HTTP}${cityContext?.city.data}?unitGroup=metric&include=hours%2Cdays&key=${API_KEY}&contentType=json`
-    )
-      .then((response) => {
-        if (response.ok) {
-          return response.json();
-        } else {
-          throw new Error(
-            "Error, please wait until the request becomes available again or check if your request complies with the guidelines"
-          );
-        }
-      })
-      .then((response) => {
-        console.log(response);
-        setData(response);
-        setIsLoading(false);
-      })
-      .catch((err) => {
-        console.error(err);
-        setIsLoading(false);
-        handleError(err);
-      });
+    if (cityContext?.city.data) {
+      setCity(cityContext?.city.data);
+
+      fetch(
+        `${API_HTTP}${city}?unitGroup=metric&include=hours%2Cdays&key=${API_KEY}&contentType=json`
+      )
+        .then((response) => {
+          if (response.ok) {
+            return response.json();
+          } else {
+            throw new Error(
+              "Error, please wait until the request becomes available again or check if your request complies with the guidelines"
+            );
+          }
+        })
+        .then((response) => {
+          console.log(response);
+          setData(response);
+          setIsLoading(false);
+        })
+        .catch((err) => {
+          console.error(err);
+          setIsLoading(false);
+          handleError(err);
+        });
+    }
   }, [cityContext?.city.data, handleError]);
 
   function onCitySubmit(cityData: string | undefined) {
-    //if(typeof cityData==="string" ){
     cityContext?.city.setToLocalStorage(cityData);
-    // }
 
     setIsLoading(true);
     fetch(
