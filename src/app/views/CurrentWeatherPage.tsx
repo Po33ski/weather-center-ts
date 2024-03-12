@@ -47,12 +47,16 @@ export const CurrentWeatherPage = () => {
         conditions: null,
         sunrise: null,
         sunset: null,
+        pressure: null,
+        humidity: null,
         hours: [
           {
             temp: null,
             conditions: null,
             winddir: null,
             windspeed: null,
+            pressure: null,
+            humidity: null,
           },
         ],
       },

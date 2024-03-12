@@ -67,6 +67,10 @@ const titelIcon = (data: string | number | null) => {
       return <i className="wi wi-sunrise" />;
     case "sunset":
       return <i className="wi wi-sunset" />;
+    case "humidity":
+      return <i className="wi wi-humidity" />;
+    case "pressure":
+      return <i className="wi wi-barometer" />;
     default:
       return <i className="wi wi-na" />;
   }
@@ -93,7 +97,6 @@ export function Icon({
   data: string | number | null;
   kindOfData: string;
 }) {
-  //const dataCheck: number  = data ? data : null;
   let icon = checkKind(data, kindOfData);
   return <>{icon}</>;
 }

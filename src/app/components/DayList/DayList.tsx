@@ -35,6 +35,13 @@ export function DayList({ data }: { data: HoursData[] }) {
               <i className="wi wi-strong-wind" />
             </th>
             <th>
+              Humidity <i className="wi wi-humidity" />
+            </th>
+            <th>
+              Air Pressure{" hPa "}
+              <i className="wi wi-barometer" />
+            </th>
+            <th>
               Conditions <i className="wi wi-day-cloudy-high" />
             </th>
           </tr>
@@ -56,6 +63,14 @@ export function DayList({ data }: { data: HoursData[] }) {
                 {UNIT_SYSTEMS[unitSystem].distance !== "km/h"
                   ? systemsConvert.toMiles(hour["windspeed"])
                   : hour["windspeed"]}
+              </td>
+              <td>
+                {hour.humidity}{" "}
+                <Icon data={hour.humidity} kindOfData={"humidity"} />
+              </td>
+              <td>
+                {hour.pressure}{" "}
+                <Icon data={hour.pressure} kindOfData={"pressure"} />
               </td>
               <td>
                 {hour.conditions}{" "}

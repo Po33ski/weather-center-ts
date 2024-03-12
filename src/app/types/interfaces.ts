@@ -40,6 +40,8 @@ export interface HoursData {
   conditions: string | null;
   winddir: number | null;
   windspeed: number | null;
+  pressure: string | null;
+  humidity: string | null;
 }
 export interface CurrentDataDay {
   description: string | null;
@@ -51,6 +53,8 @@ export interface CurrentDataDay {
   conditions: string | null;
   sunrise: string | null;
   sunset: string | null;
+  pressure: string | null;
+  humidity: string | null;
   hours: [HoursData];
 }
 export interface CurrentData {
@@ -68,6 +72,8 @@ export interface HistoryAndForecastDay {
   conditions: string | null;
   sunrise: string | null;
   sunset: string | null;
+  pressure: string | null;
+  humidity: string | null;
 }
 export interface WeatherData {
   address: string | null;

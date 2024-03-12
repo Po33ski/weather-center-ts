@@ -3,7 +3,11 @@ import Image from "next/image";
 import { BrickModalContext } from "@/app/contexts/BrickModalContext";
 import { UnitSystemContext } from "@/app/contexts/UnitSystemContext";
 import { Icon } from "../Icon/Icon";
-import { checkSign, systemsConvert } from "@/app/functions/functions";
+import {
+  checkSign,
+  findDirection,
+  systemsConvert,
+} from "@/app/functions/functions";
 import { Button } from "../Button/Button";
 import { whatImage } from "@/app/functions/functions";
 import {
@@ -73,6 +77,7 @@ export function ModalBrick() {
                     kindOfData === "sunrise") &&
                     data)}{" "}
                 {checkSign(kindOfData, unitSystem)}
+                {kindOfData === "winddir" && findDirection(dataN)}
               </h2>
               {(kindOfData === "winddir" || kindOfData === "conditions") && (
                 <span className={styles.icon}>

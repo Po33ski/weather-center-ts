@@ -16,6 +16,11 @@ import cold_image from "../../../public/cold_image.jpg";
 import winddir_image from "../../../public/winddir_image.jpg";
 import sunset_image from "../../../public/sunset_image.jpg";
 import sunrise_image from "../../../public/sunrise_image.jpg";
+import low_pressure from "../../../public/low_pressure.jpg";
+import high_pressure from "../../../public/high_pressure.jpg";
+import low_humidity from "../../../public/low_humidity.jpg";
+import medium_humidity from "../../../public/medium_humidity.jpg";
+import high_humidity from "../../../public/high_humidity.jpg";
 import { StaticImageData } from "next/image";
 
 export const systemsConvert = {
@@ -72,6 +77,10 @@ export function checkSign(
     return "AM";
   } else if (kindOfSign === "sunset") {
     return "PM";
+  } else if (kindOfSign === "pressure") {
+    return "hPa";
+  } else if (kindOfSign === "humidity") {
+    return "%";
   } else {
     return "";
   }
@@ -135,6 +144,25 @@ export const whatImage = (
     }
   };
 
+  const checkPressure = (pres: number) => {
+    switch (true) {
+      case pres < 1013:
+        return low_pressure;
+      case pres >= 1013:
+        return high_pressure;
+    }
+  };
+
+  const checkHumidity = (hum: number) => {
+    switch (true) {
+      case hum < 30:
+        return low_humidity;
+      case hum > 30 && hum <= 75:
+        return medium_humidity;
+      case hum > 75:
+        return high_humidity;
+    }
+  };
   const checkImage = (
     data: string | number | null | undefined,
     kindOfData: string
@@ -154,6 +182,10 @@ export const whatImage = (
         return checkWindSpeedImage(dataN);
       case "conditions":
         return checkConditionsImage(dataS);
+      case "pressure":
+        return checkPressure(dataN);
+      case "humidity":
+        return checkHumidity(dataN);
       case "sunrise":
         return sunrise_image;
       case "sunset":
@@ -168,4 +200,29 @@ export const whatImage = (
   const image: StaticImageData =
     typeof test === "undefined" ? sunset_image : test;
   return image;
+};
+
+export const findDirection = (data: number | null | string) => {
+  if (typeof data === "number") {
+    switch (true) {
+      case data > 345 || data <= 15:
+        return "(N)";
+      case data > 15 && data <= 75:
+        return "(NE)";
+      case data > 75 && data <= 105:
+        return "(E)";
+      case data > 105 && data <= 165:
+        return "(SE)";
+      case data > 165 && data <= 195:
+        return "(S)";
+      case data > 195 && data <= 255:
+        return "(SW)";
+      case data > 255 && data <= 285:
+        return "(W)";
+      case data > 285 && data <= 345:
+        return "(NW)";
+      default:
+        return "";
+    }
+  } else return "";
 };

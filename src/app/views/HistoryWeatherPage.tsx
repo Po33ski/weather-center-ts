@@ -38,6 +38,8 @@ export const HistoryWeatherPage = () => {
         conditions: null,
         sunrise: null,
         sunset: null,
+        pressure: null,
+        humidity: null,
       },
     ],
   });

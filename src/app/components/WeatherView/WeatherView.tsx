@@ -26,7 +26,7 @@ export function WeatherView({
           <Brick
             data={data["temp"]}
             kindOfData={"temp"}
-            title={"Current Temperature"}
+            title={"Average temperature"}
             desc={data["description"]}
           />
           <Brick
@@ -57,6 +57,18 @@ export function WeatherView({
             data={data["winddir"]}
             kindOfData={"winddir"}
             title={" Wind direction"}
+            desc={data["description"]}
+          />
+          <Brick
+            data={data["pressure"]}
+            kindOfData={"pressure"}
+            title={"Pressure"}
+            desc={data["description"]}
+          />
+          <Brick
+            data={data["humidity"]}
+            kindOfData={"humidity"}
+            title={"Humidity"}
             desc={data["description"]}
           />
           <Brick

@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { Icon } from "../Icon/Icon";
 import { UnitSystemContext } from "@/app/contexts/UnitSystemContext";
 import { BrickModalContext } from "@/app/contexts/BrickModalContext";
-import { checkSign } from "@/app/functions/functions";
+import { checkSign, findDirection } from "@/app/functions/functions";
 import { systemsConvert } from "@/app/functions/functions";
 import styles from "./Brick.module.css";
 import { UnitSystemContextType } from "@/app/types/types";
@@ -63,7 +63,9 @@ export function Brick({
               : data
             : data}{" "}
           {checkSign(kindOfData, unitSystem)}
+          {kindOfData === "winddir" && findDirection(data)}
         </span>
+
         {(kindOfData === "winddir" || kindOfData === "conditions") && (
           <span className={styles.icon}>
             <Icon data={data} kindOfData={kindOfData} />

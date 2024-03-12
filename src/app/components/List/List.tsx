@@ -39,6 +39,14 @@ export function List({ data }: { data: HistoryAndForecastDay[] }) {
               <i className="wi wi-strong-wind" />
             </th>
             <th>
+              {" "}
+              Humidity <i className="wi wi-humidity" />
+            </th>
+            <th>
+              Air Pressure{" hPa "}
+              <i className="wi wi-barometer" />
+            </th>
+            <th>
               Conditions <i className="wi wi-day-cloudy-high" />
             </th>
             <th>
@@ -70,6 +78,14 @@ export function List({ data }: { data: HistoryAndForecastDay[] }) {
                 {UNIT_SYSTEMS[unitSystem].distance !== "km/h"
                   ? systemsConvert.toMiles(day["windspeed"])
                   : day["windspeed"]}
+              </td>
+              <td>
+                {day.humidity}{" "}
+                <Icon data={day.humidity} kindOfData={"humidity"} />
+              </td>
+              <td>
+                {day.pressure}{" "}
+                <Icon data={day.pressure} kindOfData={"pressure"} />
               </td>
               <td>
                 {day.conditions}{" "}
