@@ -8,26 +8,24 @@ import {
 } from "react";
 import { createPortal } from "react-dom";
 import { CurrentForm } from "../components/CurrentForm/CurrentForm";
-
 import { ErrorMessage } from "../components/ErrorMessage/ErrorMessage";
-
 import { ModalBrick } from "../components/ModalBrick/ModalBrick";
 import { ModalInfo } from "../components/ModalInfo/ModalInfo";
+import { Loading } from "../components/Loading/Loading";
 import { BrickModalContext } from "../contexts/BrickModalContext";
 import { InfoModalContext } from "../contexts/InfoModalContext";
 import { API_KEY, API_HTTP } from "../constants/apiConstants";
+import { DayList } from "../components/DayList/DayList";
+import { MyText } from "../components/MyText/MyText";
+import { ButtonLink } from "../components/ButtonLink/ButtonLink";
 import {
   BrickModalContextType,
   CityContextType,
   InfoModalContextType,
 } from "../types/types";
 import { CurrentData } from "../types/interfaces";
-import { DayList } from "../components/DayList/DayList";
-import { MyText } from "../components/MyText/MyText";
 import { CityContext } from "../contexts/CityContextType";
-import { ButtonLink } from "../components/ButtonLink/ButtonLink";
 import { capitalizeFirstLetter } from "../functions/functions";
-import { Loading } from "../components/Loading/Loading";
 
 export function HoursPage() {
   const brickModalContext = useContext<BrickModalContextType | null>(

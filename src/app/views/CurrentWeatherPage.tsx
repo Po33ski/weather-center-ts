@@ -13,6 +13,8 @@ import { ErrorMessage } from "../components/ErrorMessage/ErrorMessage";
 import { MainPhoto } from "../components/MainPhoto/MainPhoto";
 import { ModalBrick } from "../components/ModalBrick/ModalBrick";
 import { ModalInfo } from "../components/ModalInfo/ModalInfo";
+import { Loading } from "../components/Loading/Loading";
+import { ButtonLink } from "../components/ButtonLink/ButtonLink";
 import { BrickModalContext } from "../contexts/BrickModalContext";
 import { InfoModalContext } from "../contexts/InfoModalContext";
 import { API_KEY, API_HTTP } from "../constants/apiConstants";
@@ -23,8 +25,6 @@ import {
 } from "../types/types";
 import { CurrentData } from "../types/interfaces";
 import { CityContext } from "../contexts/CityContextType";
-import { ButtonLink } from "../components/ButtonLink/ButtonLink";
-import { Loading } from "../components/Loading/Loading";
 
 export const CurrentWeatherPage = () => {
   const brickModalContext = useContext<BrickModalContextType | null>(

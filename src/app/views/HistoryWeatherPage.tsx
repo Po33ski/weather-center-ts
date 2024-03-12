@@ -9,17 +9,17 @@ import {
 import { HistoryForm } from "../components/HistoryForm/HistoryForm";
 import { List } from "../components/List/List";
 import { ErrorMessage } from "../components/ErrorMessage/ErrorMessage";
-import { normalDateFormatted } from "../functions/functions";
-import { API_KEY, API_HTTP } from "../constants/apiConstants";
-import { MainPhoto } from "../components/MainPhoto/MainPhoto";
-import { InfoModalContext } from "../contexts/InfoModalContext";
-import { createPortal } from "react-dom";
+import { Loading } from "../components/Loading/Loading";
 import { ModalInfo } from "../components/ModalInfo/ModalInfo";
 import { MyText } from "../components/MyText/MyText";
+import { MainPhoto } from "../components/MainPhoto/MainPhoto";
+import { normalDateFormatted } from "../functions/functions";
+import { API_KEY, API_HTTP } from "../constants/apiConstants";
+import { InfoModalContext } from "../contexts/InfoModalContext";
+import { createPortal } from "react-dom";
 import { capitalizeFirstLetter } from "../functions/functions";
 import { InfoModalContextType } from "../types/types";
 import { WeatherData } from "../types/interfaces";
-import { Loading } from "../components/Loading/Loading";
 
 export const HistoryWeatherPage = () => {
   const infoModalContext = useContext<InfoModalContextType | null>(

@@ -9,16 +9,17 @@ import {
 import { CurrentForm } from "../components/CurrentForm/CurrentForm";
 import { List } from "../components/List/List";
 import { ErrorMessage } from "../components/ErrorMessage/ErrorMessage";
-import { API_KEY, API_HTTP } from "../constants/apiConstants";
+import { Loading } from "../components/Loading/Loading";
 import { MainPhoto } from "../components/MainPhoto/MainPhoto";
 import { ModalInfo } from "../components/ModalInfo/ModalInfo";
+import { MyText } from "../components/MyText/MyText";
+import { API_KEY, API_HTTP } from "../constants/apiConstants";
+
 import { InfoModalContext } from "../contexts/InfoModalContext";
 import { createPortal } from "react-dom";
 import { capitalizeFirstLetter } from "../functions/functions";
-import { MyText } from "../components/MyText/MyText";
 import { InfoModalContextType } from "../types/types";
 import { WeatherData } from "../types/interfaces";
-import { Loading } from "../components/Loading/Loading";
 
 export const ForecastWeatherPage = () => {
   const infoModalContext = useContext<InfoModalContextType | null>(
