@@ -3,7 +3,6 @@ import { MyText } from "../MyText/MyText";
 import { capitalizeFirstLetter } from "@/app/functions/functions";
 import { CurrentDataDay } from "@/app/types/interfaces";
 import styles from "./WeatherView.module.css";
-import { Button } from "../Button/Button";
 
 export function WeatherView({
   data,
@@ -26,7 +25,7 @@ export function WeatherView({
           <Brick
             data={data["temp"]}
             kindOfData={"temp"}
-            title={"Average temperature"}
+            title={"Current temperature"}
             desc={data["description"]}
           />
           <Brick

@@ -53,12 +53,22 @@ export interface CurrentDataDay {
   conditions: string | null;
   sunrise: string | null;
   sunset: string | null;
-  pressure: string | null;
-  humidity: string | null;
+  pressure: number | null;
+  humidity: number | null;
   hours: [HoursData];
 }
 export interface CurrentData {
   address: string | null;
+  currentConditions: {
+    temp: number | null;
+    humidity: number | null;
+    windspeed: number | null;
+    winddir: number | null;
+    pressure: number | null;
+    conditions: string | null;
+    sunrise: string | null;
+    sunset: string | null;
+  };
   days: [CurrentDataDay];
 }
 

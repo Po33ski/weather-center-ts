@@ -36,6 +36,16 @@ export const CurrentWeatherPage = () => {
   const cityContext = useContext<CityContextType | null>(CityContext);
   const [data, setData] = useState<CurrentData>({
     address: null,
+    currentConditions: {
+      temp: null,
+      humidity: null,
+      windspeed: null,
+      winddir: null,
+      pressure: null,
+      conditions: null,
+      sunrise: null,
+      sunset: null,
+    },
     days: [
       {
         description: null,
@@ -88,7 +98,7 @@ export const CurrentWeatherPage = () => {
   useEffect(() => {
     if (cityContext?.city.data) {
       fetch(
-        `${API_HTTP}${cityContext?.city.data}?unitGroup=metric&include=hours%2Cdays&key=${API_KEY}&contentType=json`
+        `${API_HTTP}${cityContext?.city.data}?unitGroup=metric&include=alerts%2Cdays%2Chours%2Ccurrent&key=${API_KEY}&contentType=json`
       )
         .then((response) => {
           if (response.ok) {
@@ -117,7 +127,7 @@ export const CurrentWeatherPage = () => {
 
     setIsLoading(true);
     fetch(
-      `${API_HTTP}${cityData}?unitGroup=metric&include=hours%2Cdays&key=${API_KEY}&contentType=json`
+      `${API_HTTP}${cityData}?unitGroup=metric&include=alerts%2Cdays%2Chours%2Ccurrent&key=${API_KEY}&contentType=json`
     )
       .then((response) => {
         if (response.ok) {
@@ -149,7 +159,13 @@ export const CurrentWeatherPage = () => {
       {isError && <ErrorMessage>{isError}</ErrorMessage>}
       {data["address"] ? (
         <div>
-          <WeatherView data={data["days"][0]} address={data["address"]} />
+          <WeatherView
+            data={{
+              ...data["days"][0],
+              ...data["currentConditions"],
+            }}
+            address={data["address"]}
+          />
 
           <ButtonLink path={"/current/hours"}>
             Weather for every hour

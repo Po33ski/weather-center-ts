@@ -37,9 +37,20 @@ export function HoursPage() {
   const cityContext = useContext<CityContextType | null>(CityContext);
   const [data, setData] = useState<CurrentData>({
     address: null,
+    currentConditions: {
+      temp: null,
+      humidity: null,
+      windspeed: null,
+      winddir: null,
+      pressure: null,
+      conditions: null,
+      sunrise: null,
+      sunset: null,
+    },
     days: [
       {
         description: null,
+
         temp: null,
         tempmax: null,
         tempmin: null,
