@@ -2,11 +2,10 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   color: black;
-  background-color: var(--color-theme-main);
+  height: 20rem;
   width: 100%;
   max-width: 200rem;
-
-  margin: 0 auto;
+  background: local;
   padding: 1rem;
 }
 

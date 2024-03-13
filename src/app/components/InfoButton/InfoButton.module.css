@@ -1,15 +1,15 @@
 .info {
-  display: flex;
   gap: 0.5rem;
-  padding: 0.5rem;
+
+  padding-bottom: 14rem;
 }
 
 .info li {
   position: relative;
 }
 .button {
-  background-color: var(--color-theme-main);
-  border: solid 1px var(--color-theme-main);
+  background-color: transparent;
+  border: transparent;
   border-radius: 8px;
   cursor: pointer;
   transition: 0.3s background-color;
