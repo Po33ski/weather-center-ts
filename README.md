@@ -24,6 +24,7 @@ In the code are also several conditional instructions to avoid hydration problem
  
 I have also implemented the selector of measurement system. You can select 3 systems: metric, imperial (Britisch) and imperial (American). 
 The selected measurement system does not change if you refresh the page because the system is saved in the storage after every select.
+
 I encourage you to check out my project! You may open it here: https://weather-center-ts-new.vercel.app/
 
 
