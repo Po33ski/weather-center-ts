@@ -23,7 +23,7 @@
 
 :root {
   font-size: var(--default-font-size);
-  color: var(--color-white);
+  color: var(--color-black);
   font-family: var(--font-family-default);
   background-color: var(--color-black);
 }
