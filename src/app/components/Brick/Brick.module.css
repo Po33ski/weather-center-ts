@@ -6,6 +6,7 @@
 .wrapperButton {
   display: inline-flex;
   padding: 24px;
+  font-size: medium;
   flex-direction: column;
   border-radius: 12px;
   align-items: center;
