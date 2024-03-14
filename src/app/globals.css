@@ -8,6 +8,7 @@
   --color-theme-gray: #f4f4f4;
   --color-error: #c0392b;
   --color-list: #ccc9e7;
+  --color-black: black;
 }
 
 * {
@@ -22,9 +23,9 @@
 
 :root {
   font-size: var(--default-font-size);
-  color: var(--color-default);
+  color: var(--color-white);
   font-family: var(--font-family-default);
-  background-color: var(--color-white);
+  background-color: var(--color-black);
 }
 
 body,
