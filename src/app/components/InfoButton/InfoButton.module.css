@@ -14,7 +14,7 @@
   cursor: pointer;
   transition: 0.3s background-color;
   font-size: 32px;
-  color: var(--color-theme-main);
+  color: var(--color-theme-black);
 }
 
 .button:hover {
