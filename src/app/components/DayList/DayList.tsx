@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { Icon } from "../Icon/Icon";
 import { UnitSystemContext } from "@/app/contexts/UnitSystemContext";
 import { UNIT_SYSTEMS } from "@/app/constants/unitSystems";
-import { systemsConvert } from "@/app/functions/functions";
+import { findDirection, systemsConvert } from "@/app/functions/functions";
 import "../../weather_icons_data/css/weather-icons.css";
 import styles from "./DayList.module.css";
 import { HoursData } from "@/app/types/interfaces";
@@ -48,7 +48,7 @@ export function DayList({ data }: { data: HoursData[] }) {
         </thead>
         <tbody>
           {data.map((hour, index) => (
-            <tr key={index}>
+            <tr key={Math.random()}>
               {index <= 9 ? <td>0{index}:00:00</td> : <td>{index}:00:00</td>}
               <td>
                 {UNIT_SYSTEMS[unitSystem].temperature !== "°C"
@@ -58,6 +58,7 @@ export function DayList({ data }: { data: HoursData[] }) {
               <td>
                 {hour.winddir}{" "}
                 <Icon data={hour.winddir} kindOfData={"winddir"} />{" "}
+                {findDirection(hour.winddir)}
               </td>
               <td>
                 {UNIT_SYSTEMS[unitSystem].distance !== "km/h"

@@ -4,7 +4,7 @@ import { UNIT_SYSTEMS } from "@/app/constants/unitSystems";
 import { Icon } from "../Icon/Icon";
 import "../../weather_icons_data/css/weather-icons.css";
 import styles from "./List.module.css";
-import { systemsConvert } from "@/app/functions/functions";
+import { findDirection, systemsConvert } from "@/app/functions/functions";
 import { HistoryAndForecastDay } from "@/app/types/interfaces";
 
 export function List({ data }: { data: HistoryAndForecastDay[] }) {
@@ -58,8 +58,8 @@ export function List({ data }: { data: HistoryAndForecastDay[] }) {
           </tr>
         </thead>
         <tbody>
-          {data.map((day, index) => (
-            <tr key={index}>
+          {data.map((day) => (
+            <tr key={Math.random()}>
               <td>{day.datetime}</td>
               <td>
                 {UNIT_SYSTEMS[unitSystem].temperature !== "°C"
@@ -73,6 +73,7 @@ export function List({ data }: { data: HistoryAndForecastDay[] }) {
               </td>
               <td>
                 {day.winddir} <Icon data={day.winddir} kindOfData={"winddir"} />{" "}
+                {findDirection(day.winddir)}
               </td>
               <td>
                 {UNIT_SYSTEMS[unitSystem].distance !== "km/h"
