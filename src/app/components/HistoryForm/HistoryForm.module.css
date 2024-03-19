@@ -1,7 +1,7 @@
 .cont {
   display: flex;
   border-bottom: 1px solid var(--color-border);
-  background-color: var(--color-default-grey);
+  background-color: var(--color-default-gray);
   align-items: center;
   justify-content: center;
   margin: 1rem;

@@ -1,11 +1,11 @@
 .topBar {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
+  background-color: var(--color-theme-main);
   color: black;
-  height: 20rem;
   width: 100%;
   max-width: 200rem;
-  background: local;
+
   padding: 1rem;
 }
 
