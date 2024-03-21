@@ -36,7 +36,13 @@ export const CurrentForm = ({
       <form onSubmit={handleSubmit} className={styles.form}>
         <div className={styles.row}>
           <div className={styles.cell}>
-            <Input ref={cityInputRef} />
+            <input
+              ref={cityInputRef}
+              type="text"
+              id="city"
+              className={styles.input}
+              placeholder="City"
+            />
           </div>
         </div>
         <div>
