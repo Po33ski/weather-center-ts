@@ -7,7 +7,11 @@ import { InfoModalContext } from "@/app/contexts/InfoModalContext";
 import { CityContext } from "@/app/contexts/CityContextType";
 import { BrickModalData } from "@/app/types/interfaces";
 
-export const ProviderComponent = ({ children }: { children: ReactNode }) => {
+export const ContextProviderComponent = ({
+  children,
+}: {
+  children: ReactNode;
+}) => {
   const unitSystem = useLocalStorage("unit", SYSTEMS.METRIC);
   const city = useLocalStorage("city", "");
   const [isModalShown, setIsModalShown] = useState(false);

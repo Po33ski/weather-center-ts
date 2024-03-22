@@ -3,6 +3,18 @@ import { Button } from "../Button/Button";
 import styles from "./HistoryForm.module.css";
 import { Calendar } from "../Calendar/Calendar";
 
+const Input = forwardRef<HTMLInputElement>(function Input(prop, ref) {
+  return (
+    <input
+      ref={ref}
+      type="text"
+      id="city"
+      className={styles.input}
+      placeholder="City"
+    />
+  );
+});
+
 export const HistoryForm = ({
   onSubmit,
 }: {
@@ -31,13 +43,7 @@ export const HistoryForm = ({
       <form onSubmit={handleSubmit} className={styles.form}>
         <div>
           <div className={styles.cell}>
-            <input
-              ref={cityInputRef}
-              className={styles.input}
-              type="text"
-              id="city"
-              placeholder="City"
-            />
+            <Input ref={cityInputRef} />
           </div>
         </div>
         <div className={styles.cell}>

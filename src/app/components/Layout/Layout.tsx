@@ -7,12 +7,12 @@ import { MainMenu } from "../MainMenu/MainMenu";
 import { SystemSelector } from "../SystemSelector/SystemSelector";
 import { TopBar } from "../TopBar/TopBar";
 import { InfoButton } from "../InfoButton/InfoButton";
-import { ProviderComponent } from "../ProviderComponent/ProviderComponent";
+import { ContextProviderComponent } from "../ContextProviderComponent/ContextProviderComponent";
 
 export const Layout = ({ children }: { children: ReactNode }) => {
   return (
     <>
-      <ProviderComponent>
+      <ContextProviderComponent>
         <MainContent>
           <TopBar>
             <MainMenu />
@@ -25,7 +25,7 @@ export const Layout = ({ children }: { children: ReactNode }) => {
           {children}
         </MainContent>
         <Footer />
-      </ProviderComponent>
+      </ContextProviderComponent>
     </>
   );
 };

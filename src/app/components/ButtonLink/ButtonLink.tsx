@@ -1,5 +1,6 @@
 import { ReactNode } from "react";
 import styles from "./ButtonLink.module.css";
+import Link from "next/link";
 
 export function ButtonLink({
   path,
@@ -10,9 +11,9 @@ export function ButtonLink({
 }) {
   return (
     <div className={styles.setItems}>
-      <a href={path} className={styles.button}>
+      <Link href={path} className={styles.button}>
         {children}
-      </a>
+      </Link>
     </div>
   );
 }

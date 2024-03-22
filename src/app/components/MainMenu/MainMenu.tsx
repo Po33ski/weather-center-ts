@@ -1,6 +1,7 @@
 "use client";
 import styles from "./MainMenu.module.css";
 import { OPTIONS } from "@/app/constants/menuOptions";
+import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 export function MainMenu() {
@@ -11,9 +12,9 @@ export function MainMenu() {
     <ul className={styles.mainMenu}>
       {OPTIONS.map(({ path, optionName }) => (
         <li key={path}>
-          <a className={pathname === path ? "active" : ""} href={path}>
-            {optionName}
-          </a>
+          <span className={pathname === path ? "active" : ""}>
+            <Link href={path}>{optionName}</Link>
+          </span>
         </li>
       ))}
     </ul>

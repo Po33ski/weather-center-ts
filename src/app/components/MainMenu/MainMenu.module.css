@@ -1,10 +1,9 @@
 .mainMenu {
   display: flex;
-
   gap: 1rem;
 }
 
-.mainMenu li a {
+.mainMenu li span {
   text-transform: uppercase;
   color: var(--color-text-grey);
   padding: 1rem 0;
@@ -12,7 +11,7 @@
   font-weight: 700;
 }
 
-.mainMenu a:global(.active) {
+.mainMenu span:global(.active) {
   color: var(--color-text-default);
   border-bottom: 3px solid var(--color-text-default);
 }
