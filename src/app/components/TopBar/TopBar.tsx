@@ -1,6 +1,9 @@
 import { ReactNode } from "react";
-import styles from "./TopBar.module.css";
 
 export function TopBar({ children }: { children: ReactNode }) {
-  return <div className={styles.topBar}>{children}</div>;
+  return (
+    <header className=" grid-cols-3 pt-2 pb-8 flex gap justify-between items-center">
+      {children}
+    </header>
+  );
 }

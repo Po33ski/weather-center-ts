@@ -1,39 +1,18 @@
 "use client";
-import {
-  useState,
-  useCallback,
-  useContext,
-  useEffect,
-  ReactPortal,
-} from "react";
-import { createPortal } from "react-dom";
+import { useState, useCallback, useContext, useEffect } from "react";
 import { CurrentForm } from "../components/CurrentForm/CurrentForm";
 import { ErrorMessage } from "../components/ErrorMessage/ErrorMessage";
-import { ModalBrick } from "../components/ModalBrick/ModalBrick";
-import { ModalInfo } from "../components/ModalInfo/ModalInfo";
 import { Loading } from "../components/Loading/Loading";
-import { BrickModalContext } from "../contexts/BrickModalContext";
-import { InfoModalContext } from "../contexts/InfoModalContext";
 import { API_KEY, API_HTTP } from "../constants/apiConstants";
 import { DayList } from "../components/DayList/DayList";
 import { MyText } from "../components/MyText/MyText";
 import { ButtonLink } from "../components/ButtonLink/ButtonLink";
-import {
-  BrickModalContextType,
-  CityContextType,
-  InfoModalContextType,
-} from "../types/types";
+import { CityContextType } from "../types/types";
 import { CurrentData } from "../types/interfaces";
 import { CityContext } from "../contexts/CityContextType";
 import { capitalizeFirstLetter } from "../functions/functions";
 
 export function HoursPage() {
-  const brickModalContext = useContext<BrickModalContextType | null>(
-    BrickModalContext
-  );
-  const infoModalContext = useContext<InfoModalContextType | null>(
-    InfoModalContext
-  );
   const cityContext = useContext<CityContextType | null>(CityContext);
   const [data, setData] = useState<CurrentData>({
     address: null,
@@ -74,21 +53,8 @@ export function HoursPage() {
       },
     ],
   });
-
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [isError, setIsError] = useState<string | null>(null);
-  const [brickModal, setBrickModal] = useState<ReactPortal | null>(null);
-  const [infoModal, setInfoModal] = useState<ReactPortal | null>(null);
-
-  useEffect(() => {
-    const createBrickModal = createPortal(<ModalBrick />, document.body);
-    setBrickModal(createBrickModal);
-  }, []);
-
-  useEffect(() => {
-    const createInfoModal = createPortal(<ModalInfo />, document.body);
-    setInfoModal(createInfoModal);
-  }, []);
 
   const handleError = useCallback((e: Error) => {
     setIsError(e.message);
@@ -162,8 +128,6 @@ export function HoursPage() {
           <ButtonLink path={"/current"}>Back</ButtonLink>
         </div>
       )}
-      {brickModalContext?.isModalShown && brickModal}
-      {infoModalContext?.isInfoModalShown && infoModal}
     </>
   );
 }

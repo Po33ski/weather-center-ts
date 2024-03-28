@@ -1,5 +1,4 @@
 import { useContext } from "react";
-import styles from "./InfoButton.module.css";
 import { InfoModalContext } from "@/app/contexts/InfoModalContext";
 import { InfoModalContextType } from "@/app/types/types";
 
@@ -13,12 +12,11 @@ export function InfoButton() {
   }
 
   return (
-    <ul className={styles.info}>
-      <li>
-        <button onClick={handleOnClick} className={styles.button}>
-          🛈
-        </button>
-      </li>
-    </ul>
+    <button
+      onClick={handleOnClick}
+      className="fixed bottom-8 right-8 bg-blue-500 text-white text-4xl rounded-full p-2 shadow-md"
+    >
+      🛈
+    </button>
   );
 }

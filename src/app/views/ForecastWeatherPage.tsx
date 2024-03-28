@@ -1,30 +1,17 @@
 "use client";
-import {
-  useState,
-  useCallback,
-  useContext,
-  useEffect,
-  ReactPortal,
-} from "react";
+import { useState, useCallback, ReactPortal } from "react";
 import { CurrentForm } from "../components/CurrentForm/CurrentForm";
 import { List } from "../components/List/List";
 import { ErrorMessage } from "../components/ErrorMessage/ErrorMessage";
 import { Loading } from "../components/Loading/Loading";
 import { MainPhoto } from "../components/MainPhoto/MainPhoto";
-import { ModalInfo } from "../components/ModalInfo/ModalInfo";
 import { MyText } from "../components/MyText/MyText";
 import { API_KEY, API_HTTP } from "../constants/apiConstants";
-
-import { InfoModalContext } from "../contexts/InfoModalContext";
-import { createPortal } from "react-dom";
 import { capitalizeFirstLetter } from "../functions/functions";
-import { InfoModalContextType } from "../types/types";
+
 import { WeatherData } from "../types/interfaces";
 
 export const ForecastWeatherPage = () => {
-  const infoModalContext = useContext<InfoModalContextType | null>(
-    InfoModalContext
-  );
   const [data, setData] = useState<WeatherData>({
     address: null,
     days: [
@@ -45,15 +32,6 @@ export const ForecastWeatherPage = () => {
   });
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [isError, setIsError] = useState<string | null>(null);
-  const [infoModal, setInfoModal] = useState<ReactPortal | null>(null);
-
-  useEffect(() => {
-    const createInfoModal: ReactPortal = createPortal(
-      <ModalInfo />,
-      document.body
-    );
-    setInfoModal(createInfoModal);
-  }, []);
 
   const handleError = useCallback((e: Error) => {
     setIsError(e.message);
@@ -104,7 +82,6 @@ export const ForecastWeatherPage = () => {
         ""
       )}
       {data["address"] ? <List data={data["days"]} /> : <MainPhoto />}
-      {infoModalContext?.isInfoModalShown && infoModal}
     </>
   );
 };

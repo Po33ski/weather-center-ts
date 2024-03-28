@@ -30,7 +30,7 @@ export function SystemSelector() {
               e.currentTarget.value
             );
           }}
-          className={styles.systemSelector}
+          className="border-black border-2 p-4 mr-6 rounded-lg"
         >
           <option value={SYSTEMS.METRIC}>{SYSTEMS.METRIC}</option>
           <option value={SYSTEMS.UK}>{SYSTEMS.UK}</option>

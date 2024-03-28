@@ -1,18 +1,6 @@
 import { useRef, forwardRef } from "react";
 import { Button } from "../Button/Button";
 import styles from "./CurrentForm.module.css";
-//
-const Input = forwardRef<HTMLInputElement>(function Input(prop, ref) {
-  return (
-    <input
-      ref={ref}
-      type="text"
-      id="city"
-      className={styles.input}
-      placeholder="City"
-    />
-  );
-});
 
 export const CurrentForm = ({
   onCitySubmit,
@@ -32,18 +20,16 @@ export const CurrentForm = ({
   }
 
   return (
-    <div className={styles.cont}>
-      <form onSubmit={handleSubmit} className={styles.form}>
-        <div className={styles.row}>
-          <div className={styles.cell}>
-            <input
-              ref={cityInputRef}
-              type="text"
-              id="city"
-              className={styles.input}
-              placeholder="City"
-            />
-          </div>
+    <div className="flex items-center justify-center bg-white">
+      <form onSubmit={handleSubmit} className="pt-16 pb-8">
+        <div className="grid grid-cols-1 ">
+          <input
+            ref={cityInputRef}
+            type="text"
+            id="city"
+            className="rounded-md px-4 py-2 border-black border-2"
+            placeholder="City"
+          />
         </div>
         <div>
           <Button onClick={() => {}}>Check</Button>

@@ -1,6 +1,5 @@
 import { ReactNode } from "react";
-import styles from "./MyText.module.css";
 
 export function MyText({ children }: { children: ReactNode }) {
-  return <h1 className={styles.text}>{children}</h1>;
+  return <p className="text-xl font-semibold text-center mb-8">{children}</p>;
 }

@@ -17,10 +17,8 @@ export const Layout = ({ children }: { children: ReactNode }) => {
           <TopBar>
             <MainMenu />
             <Logo />
-            <div>
-              <InfoButton />
-              <SystemSelector />
-            </div>
+
+            <SystemSelector />
           </TopBar>
           {children}
         </MainContent>

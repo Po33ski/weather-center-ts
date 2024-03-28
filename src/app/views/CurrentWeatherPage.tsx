@@ -12,17 +12,11 @@ import { WeatherView } from "../components/WeatherView/WeatherView";
 import { ErrorMessage } from "../components/ErrorMessage/ErrorMessage";
 import { MainPhoto } from "../components/MainPhoto/MainPhoto";
 import { ModalBrick } from "../components/ModalBrick/ModalBrick";
-import { ModalInfo } from "../components/ModalInfo/ModalInfo";
 import { Loading } from "../components/Loading/Loading";
 import { ButtonLink } from "../components/ButtonLink/ButtonLink";
 import { BrickModalContext } from "../contexts/BrickModalContext";
-import { InfoModalContext } from "../contexts/InfoModalContext";
 import { API_KEY, API_HTTP } from "../constants/apiConstants";
-import {
-  BrickModalContextType,
-  CityContextType,
-  InfoModalContextType,
-} from "../types/types";
+import { BrickModalContextType, CityContextType } from "../types/types";
 import { CurrentData } from "../types/interfaces";
 import { CityContext } from "../contexts/CityContextType";
 
@@ -30,9 +24,7 @@ export const CurrentWeatherPage = () => {
   const brickModalContext = useContext<BrickModalContextType | null>(
     BrickModalContext
   );
-  const infoModalContext = useContext<InfoModalContextType | null>(
-    InfoModalContext
-  );
+
   const cityContext = useContext<CityContextType | null>(CityContext);
   const [data, setData] = useState<CurrentData>({
     address: null,
@@ -76,16 +68,10 @@ export const CurrentWeatherPage = () => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [isError, setIsError] = useState<string | null>(null);
   const [brickModal, setBrickModal] = useState<ReactPortal | null>(null);
-  const [infoModal, setInfoModal] = useState<ReactPortal | null>(null);
 
   useEffect(() => {
     const createBrickModal = createPortal(<ModalBrick />, document.body);
     setBrickModal(createBrickModal);
-  }, []);
-
-  useEffect(() => {
-    const createInfoModal = createPortal(<ModalInfo />, document.body);
-    setInfoModal(createInfoModal);
   }, []);
 
   const handleError = useCallback((e: Error) => {
@@ -175,7 +161,6 @@ export const CurrentWeatherPage = () => {
         <MainPhoto />
       )}
       {brickModalContext?.isModalShown && brickModal}
-      {infoModalContext?.isInfoModalShown && infoModal}
     </>
   );
 };
