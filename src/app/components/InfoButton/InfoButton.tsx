@@ -16,7 +16,7 @@ export function InfoButton() {
       onClick={handleOnClick}
       className="fixed bottom-8 right-8 bg-blue-500 text-white text-4xl rounded-full p-2 shadow-md"
     >
-      🛈
+      &#9432;
     </button>
   );
 }
