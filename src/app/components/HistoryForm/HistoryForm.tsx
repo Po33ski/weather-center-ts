@@ -1,4 +1,4 @@
-import { useRef, forwardRef, useState } from "react";
+import { useRef, useState } from "react";
 import { Button } from "../Button/Button";
 import { Calendar } from "../Calendar/Calendar";
 
@@ -27,8 +27,8 @@ export const HistoryForm = ({
 
   return (
     <div className="flex items-center justify-center bg-white">
-      <form onSubmit={handleSubmit} className="pt-16 pb-8">
-        <div className="grid grid-cols-1 mb-4">
+      <form onSubmit={handleSubmit} className="pt-16 pb-8  max-w-screen-md">
+        <div className="grid grid-cols-1 gap-y-4 mb-4">
           <label htmlFor="city" className="sr-only">
             City
           </label>
@@ -36,17 +36,11 @@ export const HistoryForm = ({
             ref={cityInputRef}
             type="text"
             id="city"
-            className="rounded-md px-4 py-2 border-black border-2"
+            className="rounded-md px-4 py-2 border-black border-2 w-full"
             placeholder="City"
           />
         </div>
-        <div className="grid grid-cols-1 mb-4">
-          <label htmlFor="startDate" className="sr-only">
-            Start Date
-          </label>
-          <label htmlFor="endDate" className="sr-only">
-            End Date
-          </label>
+        <div className="grid grid-cols-1 gap-y-4 mb-4">
           <Calendar
             startDate={startDate}
             setStartDate={setStartDate}
