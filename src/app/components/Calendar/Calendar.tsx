@@ -25,9 +25,6 @@ export function Calendar({
 
   return (
     <div className="flex flex-col md:flex-row md:items-center md:gap-x-4">
-      <label htmlFor="startDate" className="sr-only">
-        Start Date
-      </label>
       <DatePicker
         id="startDate"
         dateFormat="dd/MM/yyyy"
@@ -40,16 +37,16 @@ export function Calendar({
           setStartDate(date);
         }}
       />
-      <i className="wi wi-direction-right text-2xl md:hidden" />
-      <label htmlFor="endDate" className="sr-only">
-        End Date
-      </label>
+      <div className="mt-[100px] -mb-[100px] transform rotate-90 md:transform-none md:mt-0 md:mb-0">
+        <i className="wi wi-direction-right text-2xl" />
+      </div>
+
       <DatePicker
         id="endDate"
         dateFormat="dd/MM/yyyy"
         selected={endDate}
         value={endDateV}
-        className="flex-1 pt-1 pb-1 px-2 mt-2 mb-2 rounded-md border-black border-2 text-lg"
+        className="flex-1 pt-1 pb-1 px-2 mb-2 rounded-md border-black border-2 text-lg md:mt-2"
         maxDate={now}
         onChange={(date) => {
           date = date ? date : new Date();
