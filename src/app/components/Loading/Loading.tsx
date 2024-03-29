@@ -1,7 +1,6 @@
-import styles from "./Loading.module.css";
 export const Loading = () => {
   return (
-    <div className={styles.loading}>
+    <div className="flex bg-black text-white text-2xl justify-center pt-[20%] pb-[30%]">
       <p>...Loading</p>
     </div>
   );

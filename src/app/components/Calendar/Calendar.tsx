@@ -22,9 +22,9 @@ export function Calendar({
   const startDateV = normalDateFormatted(startDate);
   const endDateV = normalDateFormatted(endDate);
   const now = new Date();
-
+  // <div className="mt-[100px] -mb-[100px] transform rotate-90 md:transform-none md:mt-0 md:mb-0">
   return (
-    <div className="flex flex-col md:flex-row md:items-center md:gap-x-4">
+    <div className="flex flex-col md:flex-row items-center md:gap-x-4">
       <DatePicker
         id="startDate"
         dateFormat="dd/MM/yyyy"
@@ -37,7 +37,7 @@ export function Calendar({
           setStartDate(date);
         }}
       />
-      <div className="mt-[100px] -mb-[100px] transform rotate-90 md:transform-none md:mt-0 md:mb-0">
+      <div className="transform rotate-90 md:transform-none">
         <i className="wi wi-direction-right text-2xl" />
       </div>
 

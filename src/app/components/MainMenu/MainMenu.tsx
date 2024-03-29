@@ -45,7 +45,7 @@ export function MainMenu() {
         onClick={() => {
           setIsMobileNavShown((prevValue) => !prevValue);
         }}
-        className=" md:hidden lg:hidden z-30"
+        className=" md:hidden lg:hidden z-30 mx-6"
         src={burger}
         alt="burger-button"
         width={32}

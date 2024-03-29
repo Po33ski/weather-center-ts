@@ -1,9 +1,0 @@
-.loading {
-  display: flex;
-  background-color: black;
-  color: var(--color-white);
-  justify-content: center;
-  font-size: xx-large;
-  padding-top: 20%;
-  padding-bottom: 30%;
-}
