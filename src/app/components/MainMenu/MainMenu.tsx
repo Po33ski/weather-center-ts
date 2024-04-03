@@ -36,7 +36,9 @@ export function MainMenu() {
               className={`${pathname === path ? "underline " : ""} 
               transition-all font-semibold uppercase hover:font-extrabold"`}
             >
-              <Link href={path}>{optionName}</Link>
+              <Link href={path} onClick={(prev) => setIsMobileNavShown(!prev)}>
+                {optionName}
+              </Link>
             </li>
           ))}
         </ul>

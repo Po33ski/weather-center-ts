@@ -13,4 +13,8 @@ export const OPTIONS: MenuOptions[] = [
     optionName: "Forecast",
     path: "/forecast",
   },
+  {
+    optionName: "Comments",
+    path: "/comments",
+  },
 ];

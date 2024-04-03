@@ -89,3 +89,32 @@ export interface WeatherData {
   address: string | null;
   days: [HistoryAndForecastDay];
 }
+
+export interface PostData {
+  title: string;
+  description: string;
+  id: string;
+  userId: string;
+  username: string;
+  uniqueId: string;
+}
+
+export interface CreateFormData {
+  title: string;
+  description: string;
+}
+export interface dataToSend {
+  title: string;
+  description: string;
+  uniqueId: string;
+}
+
+export interface PropsData {
+  post: PostData;
+  setPostsList: React.Dispatch<React.SetStateAction<PostData[] | null>>;
+}
+
+export interface LikeData {
+  likeId: string;
+  userId: string;
+}
