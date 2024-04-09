@@ -11,7 +11,7 @@ import { Button } from "../Button/Button";
 // This component shows posts with likes on the page "create post"
 export const ShowPosts = () => {
   // 2 hooks
-  const [postsList, setPostsList] = useState<PostData[] | null>(null); // define what type is setPostsList
+  const [postsList, setPostsList] = useState<PostData[] | null>(null);
   const postsRef = collection(db, "posts");
   //  This set the list of posts in the postsList
   const getPosts = async () => {
@@ -32,9 +32,9 @@ export const ShowPosts = () => {
     await signOut(auth);
   };
   return (
-    <div className="px-4 py-8 grid gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+    <div>
       {postsList ? (
-        <>
+        <div className="px-4 py-8 grid gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
           {postsList.map((post) => (
             <div
               key={post.uniqueId}
@@ -46,7 +46,7 @@ export const ShowPosts = () => {
           <div className="col-span-full flex justify-center">
             <Button onClick={signUserOut}>Log Out</Button>
           </div>
-        </>
+        </div>
       ) : (
         <Loading />
       )}
