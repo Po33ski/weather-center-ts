@@ -1,4 +1,5 @@
 import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
 import {
   GoogleAuthProvider,
   getAuth,
@@ -11,12 +12,13 @@ import {
 import { getFirestore, collection, addDoc } from "firebase/firestore";
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyAcB5H_UL6tG1maBnhrvJz2JCeq6gQBXAc",
-  authDomain: "calculator-kcal.firebaseapp.com",
-  projectId: "calculator-kcal",
-  storageBucket: "calculator-kcal.appspot.com",
-  messagingSenderId: "1084373415179",
-  appId: "1:1084373415179:web:fc60dd66d337e674621e0e",
+  apiKey: "AIzaSyAF211VEk8d_wEFW5qfFYNCJhhPpEkjtbQ",
+  authDomain: "weather-app-d1527.firebaseapp.com",
+  projectId: "weather-app-d1527",
+  storageBucket: "weather-app-d1527.appspot.com",
+  messagingSenderId: "674980846342",
+  appId: "1:674980846342:web:ffbb028f47198ced7fdc87",
+  measurementId: "G-TV3L04WHXG",
 };
 
 // Initialize Firebase
